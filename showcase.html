@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>منصة النماذج والاعتماد | عرض النظام</title>
+<meta name="description" content="حوّل نماذجك الورقية (Excel و Word) إلى نماذج إلكترونية تمر على المعتمِدين بالترتيب، وتُتابَع لحظة بلحظة، ثم تُحفظ في أرشيف آمن.">
+<link rel="icon" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0e1a;--surface:#1a1f35;--surface-2:#252b45;--border:#2d3452;--text:#f1f5f9;--muted:#94a3b8;--faint:#64748b;
+--primary:#6366f1;--primary-dark:#4f46e5;--glow:#6366f14d;--success:#10b981;--warning:#f59e0b;--info:#3b82f6}
+@media (prefers-color-scheme: light){:root:not([data-theme="dark"]){--bg:#f4f6fb;--surface:#fff;--surface-2:#f1f5f9;--border:#e2e8f0;
+--text:#0f172a;--muted:#475569;--faint:#94a3b8;--glow:#6366f126}}
+:root[data-theme="light"]{--bg:#f4f6fb;--surface:#fff;--surface-2:#f1f5f9;--border:#e2e8f0;--text:#0f172a;--muted:#475569;--faint:#94a3b8;--glow:#6366f126}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.8 Cairo,Inter,system-ui,sans-serif}
+.aurora{position:fixed;inset:0;pointer-events:none;background:radial-gradient(900px 520px at 88% -8%,color-mix(in oklab,var(--primary) 22%,transparent),transparent 62%),
+radial-gradient(760px 460px at 4% 108%,color-mix(in oklab,#06b6d4 16%,transparent),transparent 58%);z-index:0}
+.wrap{position:relative;z-index:1;max-width:72rem;margin:0 auto;padding:0 16px}
+header.hero{padding:72px 0 40px;text-align:center}
+.logo{display:inline-grid;place-items:center;width:72px;height:72px;border-radius:22px;font-size:36px;color:#fff;
+background:linear-gradient(135deg,var(--primary),var(--primary-dark));box-shadow:0 10px 30px var(--glow)}
+h1{font-size:clamp(2rem,5vw,3.2rem);line-height:1.25;margin:18px 0 8px;font-weight:800;
+background:linear-gradient(135deg,var(--text),var(--primary));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{font-size:1.15rem;color:var(--muted);max-width:46rem;margin:0 auto}
+.cta{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:26px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:.7rem 1.3rem;border-radius:14px;font-weight:700;text-decoration:none;border:1px solid var(--border);color:var(--text)}
+.btn.primary{background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:#fff;border:0;box-shadow:0 6px 18px var(--glow)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:18px}
+.chip{padding:.25rem .8rem;border-radius:999px;background:var(--surface-2);border:1px solid var(--border);font-size:.85rem;color:var(--muted)}
+section{margin:56px 0}h2{font-size:1.6rem;margin:0 0 6px;font-weight:800}.sub{color:var(--muted);margin:0 0 22px}
+.grid{display:grid;gap:16px}.g2{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}.g3{grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}.gal{grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));align-items:start}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:20px}
+.feat{border-top:3px solid var(--primary)}.feat h3{margin:0 0 4px;font-size:1.05rem}.feat p{margin:0;color:var(--muted);font-size:.95rem}
+.steps{counter-reset:s;list-style:none;padding:0;margin:0;display:grid;gap:12px}
+.steps li{counter-increment:s;display:flex;gap:14px;align-items:flex-start}
+.steps li::before{content:counter(s);flex:none;display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--primary);color:#fff;font-weight:800}
+.acc{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}.acc code{direction:ltr;unicode-bidi:embed;background:var(--surface-2);padding:.15rem .5rem;border-radius:8px;font-family:Inter,monospace}
+figure{margin:0}.shot{display:block;width:100%;border-radius:14px;border:1px solid var(--border);cursor:zoom-in;background:var(--surface-2)}
+figcaption{color:var(--muted);font-size:.92rem;margin-top:8px}
+.tl{list-style:none;padding:0;margin:0;border-inline-start:2px solid var(--border)}
+.tl li{position:relative;padding:0 18px 18px}.tl li::before{content:"";position:absolute;inset-inline-start:-7px;top:9px;width:12px;height:12px;border-radius:50%;background:var(--primary)}
+.tl b{display:block}.tl span{color:var(--muted)}
+.note{border:1px solid color-mix(in oklab,var(--info) 40%,transparent);background:color-mix(in oklab,var(--info) 12%,transparent);color:var(--text);border-radius:16px;padding:14px 18px}
+footer{color:var(--faint);text-align:center;padding:40px 0 60px;font-size:.9rem}
+.toggle{position:fixed;top:14px;left:14px;z-index:5;width:42px;height:42px;border-radius:12px;border:1px solid var(--border);background:var(--surface);color:var(--text);cursor:pointer;font-size:18px}
+#lb{position:fixed;inset:0;background:#000c;display:none;place-items:center;z-index:10;padding:16px;cursor:zoom-out}#lb img{max-width:100%;max-height:100%;border-radius:12px}
+@media (prefers-reduced-motion:no-preference){.card,figure{animation:rise .5s ease-out both}}@keyframes rise{from{opacity:0;transform:translateY(10px)}}
+</style>
+</head>
+<body>
+<div class="aurora" aria-hidden="true"></div>
+<button class="toggle" aria-label="تبديل المظهر">◐</button>
+<div class="wrap">
+<header class="hero">
+  <div class="logo" aria-hidden="true"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h14a2 2 0 0 0 2-2V7l-5-5H6a2 2 0 0 0-2 2v4"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="m3 15 2 2 4-4"/></svg></div>
+  <h1>منصة النماذج والاعتماد</h1>
+  <p class="lead">حوّل نماذجك الورقية (Excel و Word) إلى نماذج إلكترونية تمر على المعتمِدين بالترتيب، وتُتابَع لحظة بلحظة، ثم تُحفظ في أرشيف آمن.</p>
+  <div class="cta"><a class="btn primary" href="./#/login">جرّب النسخة التجريبية الآن</a><a class="btn" href="#screens">صور النظام</a><a class="btn" href="#delivery">ما يُسلَّم لك</a></div>
+  <div class="chips"><span class="chip">نماذج تفاعلية</span><span class="chip">اعتماد متعدد المستويات</span><span class="chip">إعادة للتصحيح</span><span class="chip">إشعارات</span><span class="chip">أرشيف 3 سنوات</span><span class="chip">طباعة PDF</span><span class="chip">سجل عمليات</span><span class="chip">منشئ نماذج بلا برمجة</span></div>
+</header>
+
+<section aria-labelledby="h-problem"><div class="card"><h2 id="h-problem">ما المشكلة التي يحلها؟</h2><p class="sub" style="margin:0">الطلبات الورقية تضيع بين المكاتب، ولا يعرف مقدم الطلب أين وصل طلبه، ولا يوجد سجل يثبت من وافق ومتى، والبحث في الأرشيف الورقي يأخذ وقتاً. هذه المنصة تجعل كل طلب إلكترونياً من لحظة تقديمه حتى حفظه في الأرشيف.</p></div></section>
+
+<section aria-labelledby="h-feat"><h2 id="h-feat">ماذا يفعل النظام</h2><p class="sub">كل ميزة أدناه موجودة وتعمل في النسخة التجريبية.</p><div class="grid g3"><div class="card feat"><h3>نماذج إلكترونية بتحقق</h3><p>حقول نصية ورقمية وتواريخ وقوائم ومرفقات. يمنع النظام الإرسال حتى تُستكمل الحقول المطلوبة وتصح القيم (مثل: تاريخ النهاية بعد البداية).</p></div><div class="card feat"><h3>دورة اعتماد متسلسلة</h3><p>لكل نموذج مسار معتمِدين بالترتيب (مدير القسم ← المالية ← المدير العام). كلٌّ يرى الطلب بعد اعتماد من قبله.</p></div><div class="card feat"><h3>قبول أو رفض أو إعادة للتصحيح</h3><p>الرفض والإعادة يتطلبان ملاحظة. بعد التصحيح يعود الطلب إلى نفس المعتمِد الذي أعاده، لا إلى البداية.</p></div><div class="card feat"><h3>إشعارات وتتبع</h3><p>المعتمِد يُشعَر فور وصول طلب إليه، ومقدم الطلب يُشعَر بكل قرار، ويرى مسار طلبه ومن عنده الآن.</p></div><div class="card feat"><h3>أرشيف آمن وبحث</h3><p>الطلبات المنتهية في أرشيف بمدة حفظ محددة (3 سنوات افتراضياً)، مع بحث في كل البيانات وتصفية بالنموذج والحالة والتاريخ، وتصدير Excel.</p></div><div class="card feat"><h3>وثيقة رسمية PDF</h3><p>الطلب المعتمد يُطبع أو يُحفظ PDF بأسماء المعتمِدين وأوقات اعتمادهم وسجله الكامل.</p></div><div class="card feat"><h3>منشئ نماذج بلا برمجة</h3><p>مدير النظام يضيف نموذجاً جديداً: حقوله وأنواعها وقيودها ومسار اعتماده ومدة حفظه - دون الرجوع للمبرمج.</p></div><div class="card feat"><h3>صلاحيات</h3><p>كل مستخدم يرى ما يخصه: طلباته، أو الطلبات التي تمر عليه، أو الكل لمدير النظام.</p></div><div class="card feat"><h3>سجل العمليات</h3><p>كل دخول وتقديم واعتماد ورفض وتعديل نموذج مسجّل باسم المستخدم ووقته.</p></div></div></section>
+
+<section aria-labelledby="h-try"><h2 id="h-try">جرّبه في دقيقتين</h2><p class="sub">النسخة التجريبية تعمل في متصفحك، وما تضيفه يُحفظ عندك فقط، فجرّب بحرية.</p>
+<div class="grid g2"><div class="card"><ol class="steps"><li><div>ادخل كـ «موظف» وقدّم «طلب شراء» - جرّب الإرسال فارغاً لترى التحقق من الحقول.</div></li><li><div>من أعلى الصفحة غيّر المستخدم إلى «مدير القسم» واعتمد الطلب من «بانتظار اعتمادي».</div></li><li><div>غيّر إلى «المدير المالي» وأعد الطلب للتصحيح بملاحظة.</div></li><li><div>ارجع «موظفاً»: ستجد إشعاراً، صحّح الطلب وأعد تقديمه.</div></li><li><div>اعتمده كمالي ثم كمدير عام، ثم اطبع الوثيقة الرسمية PDF.</div></li><li><div>ادخل كـ «مدير النظام»: الأرشيف، منشئ النماذج، وسجل العمليات.</div></li></ol></div>
+<div class="card"><b>الحسابات التجريبية</b><div class="acc"><span class="chip">موظف: <code>ahmed</code></span><span class="chip">مدير القسم: <code>manager</code></span><span class="chip">المدير المالي: <code>finance</code></span><span class="chip">المدير العام: <code>gm</code></span><span class="chip">مدير النظام: <code>admin</code></span></div><p class="sub" style="margin:10px 0 0">كلمة المرور لكل الحسابات: <code style="direction:ltr;unicode-bidi:embed">1234</code>، أو اضغط اسم الحساب في صفحة الدخول.</p>
+<p style="margin-top:16px"><a class="btn primary" href="./#/login">فتح النسخة التجريبية</a></p></div></div></section>
+
+<section id="screens" aria-labelledby="h-screens"><h2 id="h-screens">صور من النظام</h2><p class="sub">اضغط أي صورة لتكبيرها.</p><div class="grid gal"><figure style="grid-column:1/-1"><img class="shot" loading="lazy" src="showcase/01.jpg" alt="لوحة التحكم - تتغير حسب دور المستخدم" style=""><figcaption style="">لوحة التحكم - تتغير حسب دور المستخدم</figcaption></figure><figure style=""><img class="shot" loading="lazy" src="showcase/02.jpg" alt="اختيار النموذج ومسار اعتماده" style=""><figcaption style="">اختيار النموذج ومسار اعتماده</figcaption></figure><figure style=""><img class="shot" loading="lazy" src="showcase/03.jpg" alt="التحقق من الحقول قبل الإرسال" style=""><figcaption style="">التحقق من الحقول قبل الإرسال</figcaption></figure><figure style="grid-column:1/-1"><img class="shot" loading="lazy" src="showcase/04.jpg" alt="مسار الاعتماد وقرار المعتمِد وسجل الطلب" style=""><figcaption style="">مسار الاعتماد وقرار المعتمِد وسجل الطلب</figcaption></figure><figure style=""><img class="shot" loading="lazy" src="showcase/05.jpg" alt="الإشعارات: أُعيد الطلب للتصحيح" style=""><figcaption style="">الإشعارات: أُعيد الطلب للتصحيح</figcaption></figure><figure style=""><img class="shot" loading="lazy" src="showcase/06.jpg" alt="الوثيقة الرسمية بأسماء المعتمِدين - طباعة أو PDF" style=""><figcaption style="">الوثيقة الرسمية بأسماء المعتمِدين - طباعة أو PDF</figcaption></figure><figure style=""><img class="shot" loading="lazy" src="showcase/07.jpg" alt="الأرشيف: بحث وتصفية وتصدير Excel" style=""><figcaption style="">الأرشيف: بحث وتصفية وتصدير Excel</figcaption></figure><figure style=""><img class="shot" loading="lazy" src="showcase/08.jpg" alt="منشئ النماذج: حقول ومسار اعتماد بلا برمجة" style=""><figcaption style="">منشئ النماذج: حقول ومسار اعتماد بلا برمجة</figcaption></figure><figure style=""><img class="shot" loading="lazy" src="showcase/09.jpg" alt="سجل العمليات" style=""><figcaption style="">سجل العمليات</figcaption></figure><figure style=""><img class="shot" loading="lazy" src="showcase/10.jpg" alt="الوضع النهاري - لوحة مدير القسم" style=""><figcaption style="">الوضع النهاري - لوحة مدير القسم</figcaption></figure><figure style=""><img class="shot" loading="lazy" src="showcase/11.jpg" alt="يعمل على الجوال" style="max-width:300px;margin-inline:auto"><figcaption style="text-align:center">يعمل على الجوال</figcaption></figure></div></section>
+
+<section id="delivery" aria-labelledby="h-del"><h2 id="h-del">ما يُسلَّم في النسخة النهائية</h2><p class="sub">النسخة التجريبية تحفظ في متصفحك للتجربة فقط. النسخة التي تُسلَّم لك نظام كامل على خادم.</p><div class="grid g3"><div class="card feat"><h3>خادم وقاعدة بيانات</h3><p>ASP.NET Core و SQL Server - البيانات مشتركة بين كل المستخدمين ومحفوظة على الخادم.</p></div><div class="card feat"><h3>أمان حقيقي</h3><p>دخول بكلمات مرور مشفّرة وجلسات آمنة (JWT)، تشفير الاتصال (HTTPS)، وصلاحيات على مستوى الخادم.</p></div><div class="card feat"><h3>مرفقات فعلية</h3><p>رفع الملفات وحفظها على الخادم مع الطلب، وعرضها من داخل النظام.</p></div><div class="card feat"><h3>إشعارات بالبريد</h3><p>إضافة للإشعارات داخل النظام، يمكن إرسال بريد للمعتمِد عند وصول طلب إليه.</p></div><div class="card feat"><h3>نسخ احتياطي</h3><p>نسخ احتياطي آلي لقاعدة البيانات والمرفقات، مع خطة استعادة.</p></div><div class="card feat"><h3>تنصيب وتوثيق</h3><p>تنصيب على خادمكم أو استضافة سحابية، ودليل استخدام، وشرح للمسؤول.</p></div></div></section>
+
+<section aria-labelledby="h-ph"><h2 id="h-ph">مراحل التنفيذ</h2><p class="sub">تسليم على مراحل، وتجربة نسخة عاملة مبكراً.</p><div class="card"><ol class="tl"><li><b>الأيام 1-3: تحليل النماذج</b><span>تحويل نماذجكم الحالية (Excel و Word) إلى حقول ومسارات اعتماد، وتأكيدها معكم.</span></li><li><b>الأيام 4-10: نسخة أولى عاملة</b><span>النماذج والتقديم ودورة الاعتماد - تجربونها وتعطون ملاحظاتكم.</span></li><li><b>الأيام 11-20: الأرشيف والأمان</b><span>الأرشيف والبحث والطباعة والصلاحيات والسجل والإشعارات.</span></li><li><b>الأيام 21-25: التنصيب والتسليم</b><span>التنصيب والنسخ الاحتياطي والتدريب، ثم فترة ضمان لإصلاح أي خطأ.</span></li></ol></div></section>
+
+<section><div class="note">هذه نسخة تجريبية بُنيت لتوضيح الفكرة قبل البدء. كل ما فيها قابل للتعديل حسب نماذجكم ومساراتكم الفعلية.</div></section>
+</div>
+<footer>تصميم وتطوير: سيف علي خضير</footer>
+<div id="lb" role="dialog" aria-label="صورة مكبّرة"><img alt=""></div>
+<script>
+const r=document.documentElement,k='showcase_theme';try{const t=localStorage.getItem(k);if(t)r.dataset.theme=t}catch(e){}
+document.querySelector('.toggle').onclick=()=>{const dark=getComputedStyle(r).getPropertyValue('--bg').trim()==='#0a0e1a';r.dataset.theme=dark?'light':'dark';try{localStorage.setItem(k,r.dataset.theme)}catch(e){}};
+const lb=document.getElementById('lb'),li=lb.querySelector('img');document.querySelectorAll('.shot').forEach(i=>i.onclick=()=>{li.src=i.src;li.alt=i.alt;lb.style.display='grid'});lb.onclick=()=>lb.style.display='none';
+addEventListener('keydown',e=>{if(e.key==='Escape')lb.style.display='none'});
+</script>
+</body>
+</html>
